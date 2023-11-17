@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+// References which helped me finish the project are below.
 
-## Getting Started
+// for masonry
+//https://mui.com/material-ui/react-masonry/
 
-First, run the development server:
+/// https://npm.io/package/react-smart-masonry (for home page)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+//https://officialrajdeepsingh.dev/read-locally-json-file-use-fetch-method-in-react-js.html
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+//fetch json -https://www.youtube.com/watch?v=D-U0OkP5kwg
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+//https://www.freecodecamp.org/news/how-to-create-an-image-gallery-with-css-grid-e0f0fd666a5c/
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+//slider, autoscroll logic https://www.youtube.com/watch?v=K9bYxUREypk
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+//https://medium.com/swlh/make-a-pinterest-style-idea-board-with-masonry-layout-tutorial-2f09a84dbf90
+/_ assign a parent class for columns and use inline-block for cards. so cards are aligned by columns and naturally flow down the page , making best use of space _/
 
-## Learn More
+//https://codepen.io/bnsddk/pen/dyXaNod
 
-To learn more about Next.js, take a look at the following resources:
+//https://codefrontend.com/reactjs-redirect-to-url/#:~:text=Redirect%20using%20react%2Drouter&text=However%2C%20if%20you%20need%20to,'%2C%20%7B%20replace%3A%20true%20%7D)%3B
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+//https://aguidehub.com/blog/2023-03-28-how-to-create-progress-bar-in-react-js/?expand_article=1
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+//progressbar logic - https://www.youtube.com/watch?v=y0gO3A3vyb8
 
-## Deploy on Vercel
+//https://betterprogramming.pub/implementing-image-and-text-slider-with-react-js-and-optimizations-7a16af998548
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+// referred https://github.com/mbart13/galleria-slideshow
+// https://github.com/brianlfarmerllc/Galleria_SlideShow
+// when i got stuck with stop and start slideshow button logic
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+//useContext logic from CalebCurry Video
+//https://www.youtube.com/watch?v=5ianRgE5ByU
+
+//Modal Logic - https://www.youtube.com/watch?v=KNEbqO-q1r8
+
+//The progress bar logic from https://www.youtube.com/watch?v=y0gO3A3vyb8
