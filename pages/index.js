@@ -1,131 +1,216 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import { useEffect, useState, useRef } from "react";
+import Box from "@mui/material/Box";
+import Masonry from "@mui/lab/Masonry";
+import { styled } from "@mui/material/styles";
 
-export default function Home() {
+import { sliderData } from "../components//slider-data.jsx";
+import { Slider } from "../components/Slider";
+import { Header } from "../components/Header";
+
+const itemData = [
+  {
+    img: "../assets/thumbnails/thumbnail0.jpg",
+    name: "Starry Night",
+    artist: "Vincent Van Gogh",
+  },
+  {
+    img: "../assets/thumbnails/thumbnail1.jpg",
+    name: "Girl with a Pearl Earring",
+    artist: "Johannes Vermeer",
+  },
+  {
+    img: "../assets/thumbnails/thumbnail2.jpg",
+    name: "Guernica",
+    artist: "Pablo Picasso",
+  },
+  {
+    img: "../assets/thumbnails/thumbnail3.jpg",
+    name: "Penitent Magdalene",
+    artist: "Artemisia Gentileschi",
+  },
+  {
+    img: "../assets/thumbnails/thumbnail4.jpg",
+    name: "The Storm on the Sea of Galilee",
+    artist: "Rembrandt",
+  },
+  {
+    img: "../assets/thumbnails/thumbnail7.jpg",
+    name: "The Sleeping Gypsy",
+    artist: "Henri Rousseau",
+  },
+
+  {
+    img: "../assets/thumbnails/thumbnail6.jpg",
+    name: "Van Gogh self-portrait",
+    artist: "Vincent Van Gogh",
+  },
+  {
+    img: "../assets/thumbnails/thumbnail5.jpg",
+    name: "The Great Wave off Kanagawa",
+    artist: "Hokusai",
+  },
+  {
+    img: "../assets/thumbnails/thumbnail10.jpg",
+    name: "The Basket of Apples",
+    artist: "Paul Cézanne",
+  },
+
+  {
+    img: "../assets/thumbnails/thumbnail9.jpg",
+    name: "The Night Café",
+    artist: "Vincent Van Gogh",
+  },
+  {
+    img: "../assets/thumbnails/thumbnail12.jpg",
+    name: "Arnolfini Portrait",
+    artist: "Jan van Eyck",
+  },
+  {
+    img: "../assets/thumbnails/thumbnail13.jpg",
+    name: "Mona Lisa",
+    artist: "Leonardo da Vinci",
+  },
+  {
+    img: "../assets/thumbnails/thumbnail11.jpg",
+    name: "The Boy in the Red Vest",
+    artist: "Paul Cézanne",
+  },
+
+  {
+    img: "../assets/thumbnails/thumbnail14.jpg",
+    name: "The Swing",
+    artist: "Jean-Honoré Fragonard",
+  },
+];
+
+export default function Home({}) {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
+    <>
+      <div className="navbar">
+        <img src="../assets/shared/logo.svg" alt="galleria" />
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="http://localhost:3000/slide"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener
+          noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
+          START SLIDESHOW
         </a>
-      </footer>
+      </div>
+      <Box
+        sx={{ width: 1360, minHeight: 820, mx: "auto", mt: "2rem", mb: "2rem" }}
+      >
+        <Masonry columns={{ xs: 1, sm: 2, md: 4 }} spacing={2}>
+          {itemData.map((item, index) => (
+            <div style={{ position: "relative" }} key={index}>
+              <img
+                src={`${item.img}?w=310 &auto=format`}
+                alt={item.name}
+                loading="lazy"
+                style={{
+                  display: "block",
+                  width: "100%",
+                }}
+              />
+              <div
+                className="details-box"
+                key={index}
+                style={{
+                  width: "230px ",
+                  height: "83px",
+                  position: "absolute",
+                  bottom: "10%",
+                  left: "10%",
+                }}
+              >
+                <h4
+                  style={{
+                    fontSize: "24px",
+                    fontWeight: "bold",
+                    color: "#ffffff",
+                    marginBottom: "5px",
+                  }}
+                >
+                  {item.name}
+                </h4>{" "}
+                <h2
+                  style={{
+                    fontSize: "12px",
+                    fontWeight: "regular",
+                    color: "#ffffff",
+                    marginBottom: "5px",
+                  }}
+                >
+                  {item.artist}
+                </h2>
+              </div>
+            </div>
+          ))}
+        </Masonry>
+      </Box>
 
       <style jsx>{`
-        main {
-          padding: 5rem 0;
-          flex: 1;
+        a {
+          color: #7d7d7d;
+          font-size: 12px;
+          font-weight: 700;
+          line-height: 19px;
+          text-decoration: none;
+        }
+        a:hover {
+          color: #000000;
+          cursor: pointer;
+        }
+        .navbar {
+          align-items: center;
+          display: flex;
+          height: 35vh;
+          justify-content: space-between;
+          width: 85vw;
+          margin: 3em 3em 3em 3em;
+        }
+
+        .card-details {
+          width: 250px;
+          position: absolute;
+          top: 70%;
+          left: 5rem;
+        }
+        h4 {
+          font-size: 24px;
+          font-weight: bold;
+          color: red;
+        }
+        h2 {
+          font-size: 12px;
+          font-weight: regular;
+          color: blue;
+        }
+
+        .pin-container {
+          margin: 0;
+          padding: 0;
+          width: 80vw;
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%);
+          display: flex;
+          align-items: flex-start;
+        }
+        .column {
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          align-items: center;
+          flex: 1 1 0;
         }
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        footer img {
-          margin-left: 0.5rem;
-        }
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          color: inherit;
-        }
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family:
-            Menlo,
-            Monaco,
-            Lucida Console,
-            Liberation Mono,
-            DejaVu Sans Mono,
-            Bitstream Vera Sans Mono,
-            Courier New,
-            monospace;
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
+        .pin {
           margin: 0;
-          font-family:
-            -apple-system,
-            BlinkMacSystemFont,
-            Segoe UI,
-            Roboto,
-            Oxygen,
-            Ubuntu,
-            Cantarell,
-            Fira Sans,
-            Droid Sans,
-            Helvetica Neue,
-            sans-serif;
+          display: inline-flex;
+          position: relative;
         }
-        * {
-          box-sizing: border-box;
+        .pin .img-fluid {
+          width: 100%;
         }
       `}</style>
-    </div>
+    </>
   );
 }
